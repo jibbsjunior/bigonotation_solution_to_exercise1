@@ -6,9 +6,9 @@
 
 const uniqSort = function(arr) {
     const breadcrumbs = {};
-    let result = [arr[0]];
+    let result = [];
 
-    for(i = 1; i < arr.length; i++) {
+    for(i = 0; i < arr.length; i++) {
       if(!breadcrumbs[arr[i]]) {
         result.push([arr[i]]);
         breadcrumbs[arr[i]] = true;
@@ -18,4 +18,4 @@ const uniqSort = function(arr) {
     return result.sort((a, b) => a - b);
 };
 
-uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
+uniqSort([4,2,2,3,2,4,4,4,4,2,2,3,5,6,3,2,4,5,3,2,5,4,4,2,2]); // => [2,3,4]
