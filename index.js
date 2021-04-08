@@ -6,8 +6,16 @@
 
 const uniqSort = function(arr) {
     const breadcrumbs = {};
+    let result = [arr[0]];
+
+    for(i = 1; i < arr.length; i++) {
+      if(!breadcrumbs[arr[i]]) {
+        result.push([arr[i]]);
+        breadcrumbs[arr[i]] = true;
+      }
+    }
     
-    return arr.sort((a, b) => a - b);
+    return result.sort((a, b) => a - b);
 };
 
-uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
+uniqSort([4,2,2,3,2,2,4,2]); // => [2,3,4]
